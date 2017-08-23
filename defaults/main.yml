@@ -3,9 +3,9 @@
 directadmin_install: True
 directadmin_setup_url: http://www.directadmin.com/setup.sh
 directadmin_setup_path: /root
-directadmin_client_id: 59316
-directadmin_license_id: 178553 
-directadmin_hostname: srv.dpvps.com
+directadmin_client_id: ?
+directadmin_license_id:? 
+directadmin_hostname: ?
 # directadmin_ip_address: # Optional, will be obtained from server
 directadmin_ethernet_device: eth0
 directadmin_custombuild_options_conf: # like http://yourdomain.com/options.conf
