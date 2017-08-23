@@ -1,0 +1,86 @@
+---
+# Directadmin automated setup - http://help.directadmin.com/item.php?id=578
+directadmin_install: True
+directadmin_setup_url: http://www.directadmin.com/setup.sh
+directadmin_setup_path: /root
+directadmin_client_id: 59316
+directadmin_license_id: 178553 
+directadmin_hostname: srv.dpvps.com
+# directadmin_ip_address: # Optional, will be obtained from server
+directadmin_ethernet_device: eth0
+directadmin_custombuild_options_conf: # like http://yourdomain.com/options.conf
+directadmin_custombuild_version: 2.0
+directadmin_custombuild_path: /usr/local/directadmin/custombuild
+directadmin_cache_timeout: 3600
+
+# Packages - http://help.directadmin.com/item.php?id=354
+directadmin_centos6_packages:
+  - wget
+  - gcc
+  - gcc-c++
+  - flex
+  - bison
+  - make
+  - bind
+  - bind-libs
+  - bind-utils
+  - openssl
+  - openssl-devel
+  - perl
+  - quota
+  - libaio
+  - libcom_err-devel
+  - libcurl-devel
+  - gd
+  - zlib-devel
+  - zip
+  - unzip
+  - libcap-devel
+  - cronie
+  - bzip2
+  - cyrus-sasl-devel
+  - perl-ExtUtils-Embed
+  - autoconf
+  - automake
+  - libtool
+  - which
+  - patch
+  - mailx
+  - db4-devel
+directadmin_centos7_packages:
+  - wget
+  - gcc
+  - gcc-c++
+  - flex
+  - bison
+  - make
+  - bind
+  - bind-libs
+  - bind-utils
+  - openssl
+  - openssl-devel
+  - perl
+  - quota
+  - libaio
+  - libcom_err-devel
+  - libcurl-devel
+  - gd
+  - zlib-devel
+  - zip
+  - unzip
+  - libcap-devel
+  - cronie
+  - bzip2
+  - cyrus-sasl-devel
+  - perl-ExtUtils-Embed
+  - autoconf
+  - automake
+  - libtool
+  - which
+  - patch
+  - mailx
+  - psmisc
+  - net-tools
+  - systemd-devel
+  - libdb-devel
+
