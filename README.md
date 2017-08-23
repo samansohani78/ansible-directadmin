@@ -1,5 +1,5 @@
 # ansible-directadmin
-go to file defuali enter 
+go to file default enter 
 directadmin_client_id: ?
 directadmin_license_id: ? 
 directadmin_hostname: ?
