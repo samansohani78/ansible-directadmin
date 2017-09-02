@@ -18,6 +18,7 @@ nano /etc/ansible/directadmin.yml
 nano /etc/ansible/hosts
 
 [directadmin]
+
 ip ansible_ssh_user=root
 
 
