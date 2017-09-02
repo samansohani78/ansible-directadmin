@@ -3,10 +3,11 @@ go to file default enter
 directadmin_client_id: ?
 directadmin_license_id: ? 
 directadmin_hostname: ?
-
+and other ...
 
 go to directory 
 /etc/ansible/
+
 nano /etc/ansible/directadmin.yml
 
 - hosts: ip
@@ -17,7 +18,7 @@ nano /etc/ansible/directadmin.yml
 nano /etc/ansible/hosts
 
 [directadmin]
-185.105.185.185 client_id= ? license_id= ? ansible_ssh_user=root
+ip ansible_ssh_user=root
 
 
 ansible-playbook directadmin.yml
