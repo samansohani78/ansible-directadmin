@@ -1,6 +1,16 @@
 ---
-- name: update-system
-  command: yum update -y
+- name: yum Update
+  yum: name=* state=latest
+  tags: [yum_update]
+
+- name: "Set up prerequisites file"
+  copy:
+    content: 1
+    dest: /root/.preinstall
+    force: no
+    group: root
+    owner: root
+    mode: 644
 
 - name: obtain setup.sh script
   get_url:
@@ -12,29 +22,22 @@
     path: "{{ directadmin_setup_path }}/setup.sh"
     mode: 0755
 
-- name: ensure custombuild version is set
-  template:
-    src: .custombuild.j2
-    dest: "{{ directadmin_setup_path }}/.custombuild"
+- name: "Set installer permissions"
+  file:
+    path: /root/setup.sh
+    mode: 755
 
-- block:
-    - name: ensure directadmin path if remote options file is used
-      file:
-        path: "{{ directadmin_custombuild_path }}"
-        recurse: yes
-        state: directory
-
-    - name: try remote custombuild options file
-      get_url:
-        url: "{{ directadmin_custombuild_options_conf }}"
-        dest: "{{ directadmin_custombuild_path }}/options.conf"
-
-  when: directadmin_custombuild_options_conf is defined and directadmin_custombuild_options_conf is not none
+- name: "Set up custombuild version"
+  copy:
+    content: "2.0"
+    dest: /root/.custombuild
+    force: no
+    mode: 644
 
 # https://sohani.me
 
 - debug:
-    msg: "This is a good time for a coffee break - saman-sohani"
+    msg: "This is a good time for a coffee break - sohani.me"
   when: directadmin_install
 
 - name: run setup
@@ -42,8 +45,20 @@
   register: setup_output
   when: directadmin_install
 
-- name: directadmin
-  command: /usr/local/directadmin/directadmin i
+- name: Remove conf file
+  shell: rm -rf /usr/local/directadmin/custombuild/options.conf
+  tags: [remove_conf_file]
+
+- name: copy options.conf to /usr/local/directadmin/custombuild
+  template: src=options.conf.j2 dest=/usr/local/directadmin/custombuild
+
+- name: rename conf file
+  shell: mv /usr/local/directadmin/custombuild/options.conf.j2 /usr/local/directadmin/custombuild/options.conf
+
+- name: update DirectAdmin custombuild
+  command: /usr/local/directadmin/custombuild/build all
+  register: build_all
+
 
 - debug:
     var: setup_output.stdout_lines
@@ -52,4 +67,3 @@
 - debug:
     msg: "Directadmin is already installed and running, skipping.."
   when: not directadmin_install
-
