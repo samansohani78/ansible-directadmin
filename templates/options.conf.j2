@@ -1,0 +1,102 @@
+#PHP Settings
+php1_release={{ php1_release }}
+php1_mode={{ php1_mode }}
+php2_release=no
+php2_mode=php-fpm
+opcache={{ opcache }}
+htscanner=no
+php_ini=no
+php_timezone={{ php_timezone }}
+php_ini_type=production
+ioncube=yes
+zend=yes
+suhosin=yes
+x_mail_header=yes
+
+#MySQL Settings
+mysql=5.6
+mariadb={{ mariadb }}
+mysql_inst=no
+mysql_backup=yes
+mysql_backup_gzip=no
+mysql_backup_dir={{mysql_backup_dir}}
+mysql_force_compile=no
+
+#WEB Server Settings
+webserver={{ webserver }}
+litespeed_serialno=trial
+modsecurity=no
+modsecurity_ruleset=comodo
+apache_ver=2.4
+apache_mpm=auto
+mod_ruid2=no
+userdir_access=yes
+harden_symlinks_patch=yes
+use_hostname_for_alias=no
+redirect_host={{ redirect_host }}
+redirect_host_https=no
+
+#WEB Applications Settings
+phpmyadmin=yes
+phpmyadmin_ver=4
+squirrelmail=no
+roundcube=yes
+webapps_inbox_prefix=no
+
+#ClamAV-related Settings
+clamav=no
+clamav_exim=yes
+modsecurity_uploadscan=no
+proftpd_uploadscan=no
+pureftpd_uploadscan=no
+suhosin_php_uploadscan=no
+
+#Mail Settings
+exim=yes
+eximconf=no
+eximconf_release=4.4
+blockcracking=no
+easy_spam_fighter=no
+spamassassin=no
+sa_update=daily
+dovecot=yes
+dovecot_conf=yes
+pigeonhole=no
+
+#FTP Settings
+ftpd=proftpd
+
+#Statistics Settings
+awstats=no
+webalizer=yes
+
+#CustomBuild Settings
+custombuild=2.0
+autover=no
+bold=yes
+clean=yes
+cleanapache=yes
+clean_old_tarballs=yes
+clean_old_webapps=yes
+downloadserver=files17.directadmin.com
+
+#Cronjob Settings
+cron=no
+cron_frequency=weekly
+email=email@domain.com
+notifications=yes
+da_autoupdate=no
+updates=no
+webapps_updates=yes
+
+#CloudLinux Settings
+cloudlinux=no
+cloudlinux_beta=no
+cagefs=no
+
+#Advanced Settings
+autoconf=yes
+automake=yes
+libtool=yes
+curl=no
+new_pcre=no
