@@ -4,7 +4,7 @@ directadmin_install: True
 directadmin_setup_url: http://www.directadmin.com/setup.sh
 directadmin_setup_path: /root
 directadmin_client_id: ?
-directadmin_license_id:? 
+directadmin_license_id: ? 
 directadmin_hostname: ?
 # directadmin_ip_address: # Optional, will be obtained from server
 directadmin_ethernet_device: eth0
@@ -12,6 +12,16 @@ directadmin_custombuild_options_conf: # like http://yourdomain.com/options.conf
 directadmin_custombuild_version: 2.0
 directadmin_custombuild_path: /usr/local/directadmin/custombuild
 directadmin_cache_timeout: 3600
+
+php1_release: 5.6
+php1_mode: "php-fpm"
+opcache: "yes"
+php_timezone: "Asia/Tehran"
+mariadb: 10.2
+mysql_backup: "yes"
+mysql_backup_dir: "/usr/local/directadmin/custombuild/mysql_backups"
+webserver: "nginx_apache"
+redirect_host: "?"
 
 # Packages - http://help.directadmin.com/item.php?id=354
 directadmin_centos6_packages:
@@ -83,4 +93,3 @@ directadmin_centos7_packages:
   - net-tools
   - systemd-devel
   - libdb-devel
-
